@@ -1,0 +1,155 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: ClubCar ME EBS EPS Throttle
+VAL_TABLE_ EBS_brakeEnable 1 "使能" 0 "不使能" ;
+VAL_TABLE_ ID76C_LaneType 2 "Undecided" 1 "Solid" ;
+VAL_TABLE_ LKA_RefPointValidity 1 "Valid" 0 "Invalid" ;
+VAL_TABLE_ ID767_ViewRangeAvailability 1 "Valid" 0 "Not valid" ;
+VAL_TABLE_ LKA_ModelDegree 3 "Third degree model" 2 "Parabolic model" 1 "Linear model" ;
+VAL_TABLE_ LKA_Quality 3 "High quality" 2 "High quality" 1 "Low quality" 0 "Low quality" ;
+VAL_TABLE_ LKA_LaneType 6 "Invalid" 5 "Botts' dots" 4 "Double lane mark" 3 "Road edge" 2 "Undecided" 1 "Solid" 0 "Dashed" ;
+VAL_TABLE_ ID669_LaneType 6 "Invalid" 5 "Bott's dots" 4 "Double lane mark" 3 "Road edge" 2 "None" 1 "Solid" 0 "Dashed" ;
+VAL_TABLE_ ID669_LaneConfidence 3 "Highest confidence" 2 "High confidence" 1 "Low confidence" 0 "Lowest confidence" ;
+VAL_TABLE_ Obs_ObstacleReplaced 1 "Replaced" 0 "Not replaced" ;
+VAL_TABLE_ Obs_RadarMatchConfidence 5 "High confidence match" 4 "Vision-radar match" 3 "Vision-radar match" 2 "Vision-radar match" 1 "Multi match" 0 "No match" ;
+VAL_TABLE_ Obs_CIPVFlag 1 "CIPV" 0 "Not CIPV" ;
+VAL_TABLE_ Obs_ObstacleLane 3 "Invalid signal" 2 "Next lane, or next next lane" 1 "Ego lane" 0 "Not assigned" ;
+VAL_TABLE_ Obs_ObstacleValid 2 "Old valid" 1 "New valid (detected this frame)" ;
+VAL_TABLE_ Obs_ObstacleBrakeLights 1 "Object's brake lights are ON" 0 "Object's brake lights are OFF" ;
+VAL_TABLE_ Obs_ObstacleStatus 6 "Unused" 5 "Parked (unmoved bck lights on)" 4 "Oncoming" 3 "Moving" 2 "Stopped (movable)" 1 "Standing (unmoved bck lights on)" 0 "Undefied" ;
+VAL_TABLE_ Obs_ObstacleType 7 "Unused" 6 "Unused" 5 "Unused" 4 "Bicycle" 3 "Pedestrian" 2 "Bike" 1 "Truck" 0 "Vehicle" ;
+VAL_TABLE_ Obs_CutInAndOut 4 "Cut out" 3 "Cut in" 2 "Out host lane" 1 "In host lane" 0 "Undefined" ;
+VAL_TABLE_ Obs_BlinkerInfo 4 "Both" 3 "Right" 2 "Left" 1 "Off" 0 "Unavailable" ;
+VAL_TABLE_ ID738_FailSafe 8 "Unused" 4 "Unused" 2 "Blur image" 1 "Low sun" 0 "No failsafe" ;
+VAL_TABLE_ ID738_CloseCar 1 "Close car exists" 0 "No close car" ;
+VAL_TABLE_ ID738_Go 15 "Not calculated" 14 "Currently unused" 13 "Currently unused" 12 "Currently unused" 11 "Currently unused" 10 "Currently unused" 9 "Currently unused" 8 "Currently unused" 7 "Currently unused" 6 "Currently unused" 5 "Currently unused" 4 "Currently unused" 3 "Driver decision is required" 2 "Undecided" 1 "Go" 0 "Stop" ;
+VAL_TABLE_ ID738_RightCloseRangeCutIn 1 "Right cut in" 0 "No right cut in" ;
+VAL_TABLE_ ID738_LeftCloseRangeCutIn 1 "Left cut in" 0 "No left cut in" ;
+VAL_TABLE_ ID737_LeftLDWAvailability 1 "Available" 0 "Unavailable" ;
+VAL_TABLE_ ID737_RightLDWAvailability 1 "Available" 0 "Unavailable" ;
+VAL_TABLE_ ID729_BusyScene 1 "A few vehicles" 0 "The non-dazzling area" ;
+VAL_TABLE_ ID729_TooManyCars 1 "Too many light sources" 0 "Vehicle don't exceed thresholds" ;
+VAL_TABLE_ ID729_RightTargetChange 1 "Right target has changed" 0 "Right target same as before" ;
+VAL_TABLE_ ID729_LeftTargetChange 1 "Left target has changed" 0 "Left target same as before" ;
+VAL_TABLE_ ID729_ST_OBJ_DIST_HLB 3 "Invalid signal" 2 "Oncoming vehicle detected" 1 "Preceding vehicle detected" 0 "No object detected" ;
+VAL_TABLE_ ID729_ST_BNDRY_DOM_NGL_RH_HLB 3 "Invalid signal" 2 "Right boundary oncoming vehicle" 1 "Right boundary preceding vehicle" 0 "No object detected" ;
+VAL_TABLE_ ID729_ST_BNDRY_DOM_NGL_LH_HLB 3 "Invalid signal" 2 "Left boundary oncoming vehicle" 1 "Left boundary preceding vehicle" 0 "No object detected" ;
+VAL_TABLE_ ID729_ST_BNDRY_DOM_BOT_NGL_HLB 3 "Invalid signal" 2 "Lower boundary oncoming vehicle" 1 "Lower boundary preceding vehicle" 0 "No object detected" ;
+VAL_TABLE_ ID728_ReasonsForSwitchToLowBeam 256 "Too many lights" 128 "Delay (hysteresis)" 64 "HW mode" 32 "Fog detection identified on HLB" 16 "Village detection" 8 "Ambient light" 4 "Speed limit" 2 "Preceding vehicle" 1 "Oncoming vehicle" 0 "No switch reason" ;
+VAL_TABLE_ ID728_BinaryHighLowBeamDecision 3 "Signal invalid" 2 "Recommendation: high beam ON" 1 "Recommendation: high beam OFF" 0 "No recommendation" ;
+VAL_TABLE_ TSR_FilterType 3 "Embedded" 2 "On vehicle/truck" 1 "Irrelevant to the host driver" 0 "Not filtered" ;
+VAL_TABLE_ TSR_VisionOnlySuppSignTypes 255 "Invalid supp" 22 "E zone" 21 "E rappel" 20 "Supp sign generic" 19 "Night" 18 "Hazardous materials" 17 "Fog" 16 "Rain cloud" 15 "School" 14 "Snow rain" 13 "Tractor" 12 "Distance in" 11 "Weight" 10 "Distance arrow (distance for)" 9 "Truck" 8 "BendArrow right" 7 "BendArrow left" 6 "Arrow right" 5 "Arrow left" 4 "Time" 3 "Trailer" 2 "Snow" 1 "Rain" 0 "None" ;
+VAL_TABLE_ TSR_VisionOnlySignType 254 "No sign detected" 255 "E_invalid_sign" 221 "Standard elect end of no passing" 220 "Standard electr no passing start" 201 "Regular end of no passing" 200 "Regular no passing start" 176 "Regular end of playground area" 175 "Standard Playground area begin" 174 "Standard regular end of ExprWay" 173 "Standard regular exprWay begin" 172 "Standard regular end of MotorWay" 171 "Standard regular motorWay begin" 129 "Standard electronic 145 kph" 128 "Standard electronic 135 kph" 127 "Standard electronic 125 kph" 126 "Standard electronic 115 kph" 125 "Standard electronic 105 kph" 124 "Standard electronic 95 kph" 123 "Standard electronic 85 kph" 122 "Standard electronic 75 kph" 121 "Standard electronic 65 kph" 120 "Standard electronic 55 kph" 119 "Standard electronic 45 kph" 118 "Standard electronic 35 kph" 117 "Standard electronic 25 kph" 116 "Standard electronic 15 kph" 115 "Standard electronic 5 kph" 114 "Standard regular 145 kph" 113 "Standard regular 135 kph" 112 "Standard regular 125 kph" 111 "Standard regular 115 kph" 110 "Standard regular 105 kph" 109 "Standard regular 95 kph" 108 "Standard regular 85 kph" 107 "Standard regular 75 kph" 106 "Standard regular 65 kph" 105 "Standard regular 55 kph" 104 "Standard regular 45 kph" 103 "Standard regular 35 kph" 102 "Standard regular 25 kph" 101 "Standard regular 15 kph" 100 "Standard regular 5 kph" 65 "Electric gen end of all restrict" 64 "Regular gen end all restrict" 50 "Electronic end of num restrict" 41 "Standard electronic 140 kph" 40 "Standard electronic 130 kph" 39 "Standard electronic 120 kph" 38 "Standard electronic 110 kph" 37 "Standard electronic 100 kph" 36 "Standard electronic 90 kph" 35 "Standard electronic 80 kph" 34 "Standard electronic 70 kph" 33 "Standard electronic 60 kph" 32 "Standard electronic 50 kph" 31 "Standard electronic 40 kph" 30 "Standard electronic 30 kph" 29 "Standard electronic 20 kph" 28 "Standard electronic 10 kph" 20 "Standard end of num restriction" 13 "Standard regular 140 kph" 12 "Standard regular 130 kph" 11 "Standard regular 120 kph" 10 "Standard regular 110 kph" 9 "Standard regular 100 kph" 8 "Standard regular 90 kph" 7 "Standard regular 80 kph" 6 "Standard regular 70 kph" 5 "Standard regular 60 kph" 4 "Standard regular 50 kph" 3 "Standard regular 40 kph" 2 "Standard regular 30 kph" 1 "Standard regular 20 kph" 0 "Standard regular 10 kph" ;
+VAL_TABLE_ ID700_WarningLevel 3 "CIPV presents, HW < 0.6 (red)" 2 "CIPV presents 0.6<HW<1.0 orange" 1 "CIPV presents, HW > 1.0 (green)" 0 "No CIPV presents" ;
+VAL_TABLE_ ID700_PedInDZ 1 "Peds is in a danger zone" 0 "Peds is not in a danger zone" ;
+VAL_TABLE_ ID700_PedFCW 1 "FCW warning" 0 "No FCW warning" ;
+VAL_TABLE_ ID700_FailSafe 1 "Internal failsafe mode" 0 "No internal failsafe mode" ;
+VAL_TABLE_ ID700_Maintenance 1 "Internal error" 0 "No internal error" ;
+VAL_TABLE_ ID700_RightCrossing 1 "Right crossing" 0 "No right crossing" ;
+VAL_TABLE_ ID700_LeftCrossing 1 "Left crossing" 0 "No left crossing" ;
+VAL_TABLE_ ID700_FCWOn 1 "FCW warning" 0 "No FCW warning" ;
+VAL_TABLE_ ID700_RightLDWOn 1 "Right LDW" 0 "No right LDW" ;
+VAL_TABLE_ ID700_LeftLDWOn 1 "Left LDW" 0 "No left LDW" ;
+VAL_TABLE_ ID700_LanesOn 1 "LD algorithm ON" 0 "LD algorithm OFF (no speed)" ;
+VAL_TABLE_ ID700_HeadwayValid 1 "Valid" 0 "Not valid" ;
+VAL_TABLE_ ID700_NightTimeIndicator 1 "Night mode" 0 "Not in night mode" ;
+VAL_TABLE_ ID700_DuskTimeIndicator 1 "Dusk mode" 0 "Not in dusk mode" ;
+VAL_TABLE_ ID700_SoundType 7 "Reserved" 6 "Hard FCW + Peds FCW" 5 "Soft FCW" 4 "Near_HW" 3 "Far_HW (=HW1/HW2/HW3)" 2 "LDWR" 1 "LDWL" 0 "Silent" ;
+VAL_TABLE_ ID700_Suppress 1 "New sound or suppressed sound" 0 "Old sound" ;
+
+
+BO_ 546 EBSFeedback: 1 Vector__XXX
+
+BO_ 274 EPSInput: 3 ClubCar
+ SG_ EPSMode : 7|8@0+ (1,0) [0|15] ""  EPS
+ SG_ SteeringAngleRequest : 11|12@0- (1,0) [-900|900] ""  EPS
+
+BO_ 485 EPSSteeringAngleFeedback: 8 EPS
+ SG_ EPS_SteeringAngle : 15|16@0+ (0.0625,-2048) [-900|900] ""  ClubCar
+
+BO_ 1684 EPS_02: 8 EPS
+ SG_ EPS_DrvTrq : 47|16@0- (0.00097656,0) [-32|32] ""  ClubCar
+
+BO_ 784 throttleFeedback: 8 ClubCar
+
+BO_ 170 BCM: 1 Vector__XXX
+ SG_ BCM_Gear : 7|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 768 throttleInput: 1 Throttle
+ SG_ throttle : 7|8@0+ (0.390625,0) [0|100] "%"  ClubCar
+
+BO_ 552 EBS: 2 EBS
+ SG_ EBS_brakeEnable : 0|8@1+ (1,0) [0|1] "Enum"  ClubCar
+ SG_ EBS_brakePadel : 15|8@0+ (0.4166667,0) [0|100] "%"  ClubCar
+
+BO_ 168 VehInfo2ME: 8 ClubCar
+ SG_ RightTurnLight : 17|1@1+ (1,0) [0|1] ""  ME
+ SG_ LeftTurnLight : 16|1@1+ (1,0) [0|1] ""  ME
+ SG_ VehSpd : 0|16@1+ (0.001867390368264,0) [0|120] "kmh"  ME
+
+
+
+CM_ BO_ 546 "刹车反馈，心跳包 无数据；50ms";
+CM_ BO_ 768 "观光车油门输入";
+CM_ SG_ 768 throttle "油门输入";
+CM_ BO_ 552 "观光车刹车";
+CM_ SG_ 552 EBS_brakeEnable "观光车刹车，0不使能，1使能";
+CM_ SG_ 552 EBS_brakePadel "刹车输入，制动行程";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","Event","IfActive","CyclicAndEvent","CyclicAndActive","NotUsed","NotUsed","NotUsed","NotUsed","NoMsgSendType";
+BA_DEF_ SG_  "GenSigStartValue" INT 0 0;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType","NotUsed","NotUsed";
+BA_DEF_  "Baudrate" INT 0 1000000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "NmType" STRING ;
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "Baudrate" 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "NmType" "";
+BA_DEF_DEF_  "Manufacturer" "Vector";
+BA_DEF_DEF_  "DBName" "hetuCAN1";
+BA_ "Baudrate" 500000;
+BA_ "BusType" "CAN";
+BA_ "DBName" "ClubCar";
+VAL_ 552 EBS_brakeEnable 1 "使能" 0 "不使能" ;
+VAL_ 168 RightTurnLight 1 "Off" 0 "On" ;
+VAL_ 168 LeftTurnLight 1 "Off" 0 "On" ;
+
