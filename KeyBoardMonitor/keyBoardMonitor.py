@@ -31,13 +31,14 @@ from multiprocessing import Process,Queue
 # 返回值  ：
 # 备注信息：
 ##############################################################################################################
-def InputKey(qKeyBoardEPSEBSEnable):
+def InputKey(qKeyBoardEPSEBSEnable,graph):
     #global EPSEnableStatus
     def kbenent(event):
         global running 
         if event.Key == 'q' or event.Key == 'qq':
             print('wo chengongle')
             qKeyBoardEPSEBSEnable.put(0)
+            graph.close()
         if event.Key == 'e' or event.Key == 'ee':
             qKeyBoardEPSEBSEnable.put(1)
             #EPSEnableStatus = 0

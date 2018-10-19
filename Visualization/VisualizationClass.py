@@ -181,6 +181,113 @@ class StreamDetectionPlot(object):
         # 绘图间隔
         plt.pause(0.05)
         plt.draw()
+    # 接受进程输入数据进行图像的可视化
+    def acceptInsDataPlot(self,qINSDATA):
+        #lock = threading.Lock() 
+        print('进入数据可视化进程')
+        value = []
+        i = 0
+        while True:
+            print('sdkjlskdjsdllkjklsdjflksdjklfjdsjfljsdljfljdsljfkl;sdjkfk')
+            value = qINSDATA.get(True)
+            #lock.acquire()
+            print(value)
+            #try:
+            #qINSDATA.queue.clear()
+            gps_time = int(value['gps_time'])
+            heading = float(value['heading'])
+            pitch = float(value['pitch'])
+            roll = float(value['roll'])
+            gyroX = float(value['gyroX'])
+            gyroY = float(value['gyroY'])
+            gyroZ = float(value['gyroZ'])
+            accX = float(value['accX'])
+            accY = float(value['accY'])
+            accZ = float(value['accZ'])
+            latitude = float(value['latitude'])
+            longitude = float(value['longitude'])
+            east_speed = float(value['east_speed'])
+            north_speed = float(value['north_speed'])
+            position_type = float(value['position_type'])
+            GNSS_info1 = float(value['GNSS_info1'])
+            GNSS_info2 = float(value['GNSS_info2'])
+            vehicle_lat_speed = float(value['vehicle_lat_speed'])
+            vehicle_lon_speed = float(value['vehicle_lon_speed'])
+            #finally:
+            #    lock.release()
+            self.gps_time.append(gps_time)
+            self.vehicle_lon_speed.append(vehicle_lon_speed)
+            self.heading.append(heading)
+            self.latitude.append(latitude)
+            self.longitude.append(longitude)
+            if len(self.gps_time) >= 2000:
+                self.gps_time.pop(0)
+                self.vehicle_lon_speed.pop(0)
+                self.latitude.pop(0)
+                self.longitude.pop(0)
+                self.heading.pop(0)
+            #################################################################################
+            # 绘制车辆纵向速度与GPS时间的关系
+            # 更新x,y轴的范围
+            self.gps_timeRange = [min(self.gps_time),max(self.gps_time)+80]
+            self.vehicle_lon_speedRange = [min(self.vehicle_lon_speed),max(self.vehicle_lon_speed)+1]
+            # 更新x,y轴的显示范围
+            self.INS_longitudeSpeed.set_xlim(self.gps_timeRange[1]-4000,self.gps_timeRange[1])
+            self.INS_longitudeSpeed.set_ylim(self.vehicle_lon_speedRange[0],self.vehicle_lon_speedRange[1])
+            # 绘制纵轴
+            self.INS_longitudeSpeed.set_xticks(range(self.gps_timeRange[1]-4000,self.gps_timeRange[1],800))
+            self.INS_longitudeSpeed.set_yticks(range(0,24,4))
+            # 更新参数
+            self.longitudeSpeedLine.set_xdata(self.gps_time)
+            self.longitudeSpeedLine.set_ydata(self.vehicle_lon_speed)
+            ###################################################################################
+            # 绘制车辆航向角与GPS时间的关系
+            # 更新x,y轴的范围
+            self.heading_timeRange = [min(self.heading),max(self.heading)+80]
+            self.headingRange = [min(self.heading),max(self.heading)+1]
+            # 更新x,y轴的显示范围
+            self.INS_heading.set_xlim(self.gps_timeRange[1]-4000,self.gps_timeRange[1])
+            self.INS_heading.set_ylim(self.headingRange[0],self.headingRange[1])
+            # 绘制纵轴
+            self.INS_heading.set_xticks(range(self.gps_timeRange[1]-4000,self.gps_timeRange[1],800))
+            self.INS_heading.set_yticks(range(-20,360,76)) # 一共分5格
+            # 更新参数
+            self.headingLine.set_xdata(self.gps_time)
+            self.headingLine.set_ydata(self.heading)
+            ###################################################################################
+            # 绘制车辆纵向加速度与GPS时间的关系
+            # 更新x,y轴的范围
+    #        self.gps_timeRange = [min(self.gps_time),max(self.gps_time)+80]
+    #        self.vehicle_lon_speedRange = [min(self.vehicle_lon_speed),max(self.vehicle_lon_speed)+1]
+    #        # 更新x,y轴的显示范围
+    #        self.INS_LatitudeLongitude.set_xlim(self.gps_timeRange[1]-4000,self.gps_timeRange[1])
+    #        self.INS_LatitudeLongitude.set_ylim(self.vehicle_lon_speedRange[0],self.vehicle_lon_speedRange[1])
+    #        # 绘制纵轴
+    #        self.INS_LatitudeLongitude.set_xticks(range(self.gps_timeRange[1]-4000,self.gps_timeRange[1],800))
+    #        self.INS_LatitudeLongitude.set_yticks(range(0,24,4))
+    #        # 更新参数
+    #        self.longitudeSpeedLine.set_xdata(self.gps_time)
+    #        self.longitudeSpeedLine.set_ydata(self.vehicle_lon_speed)
+            ###################################################################################
+            # 绘制经纬度信息
+            # 更新x,y轴的范围
+                    
+            self.latitude_Range = [min(self.latitude)-0.0005,max(self.latitude)]
+            self.longitude_Range = [min(self.longitude)-0.001,max(self.longitude)+0.001]
+            # 更新x,y轴的显示范围
+            self.INS_LatitudeLongitude.set_xlim(self.latitude_Range[0],self.latitude_Range[1])
+            self.INS_LatitudeLongitude.set_ylim(self.longitude_Range[0],self.longitude_Range[1])
+            # 绘制纵轴
+            self.INS_LatitudeLongitude.set_xticks(np.arange(self.latitude_Range[0],self.latitude_Range[1],0.0003))
+            self.INS_LatitudeLongitude.set_yticks(np.arange(self.longitude_Range[0],self.longitude_Range[1],0.0003))
+            # 更新参数
+            self.latitudelongitude.set_xdata(self.latitude)
+            self.latitudelongitude.set_ydata(self.longitude)        
+            ################################################################
+            
+            # 绘图间隔
+            plt.pause(0.05)
+            plt.draw()
 
     def close(self):
         plt.ioff()
