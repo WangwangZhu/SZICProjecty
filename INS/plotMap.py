@@ -26,7 +26,7 @@ def ReadDataFromCSV():
     global latitude
     global longitude
     global heading 
-    with open('/home/zhu/Desktop/SZICProject/INS/MPCTracking.csv','r') as f:
+    with open('/home/zeer/Desktop/SZICProjecty/INS/MPCTracking.csv','r') as f:
         reader = csv.DictReader(f)
         for row in reader:
             column1 = float((row['latitude']))

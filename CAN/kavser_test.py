@@ -10,10 +10,11 @@
 import sys 
 sys.path.append('/usr/local/lib/python3.5/dist-packages/')
 import canlib.canlib as canlib
-cl = canlib.canlib()
-num_channels = cl.getNumberOfChannels()
+#  cl = canlib.canlib()
+num_channels = canlib.getNumberOfChannels()
 print("Found %d channels" % num_channels)
 for ch in range(0, num_channels):
-    print("%d. %s (%s / %s)" % (ch, cl.getChannelData_Name(ch),
-        cl.getChannelData_EAN(ch),
-        cl.getChannelData_Serial(ch)))
+    #  print("%d. %s (%s / %s)" % (ch, cl.getChannelData_Name(ch),
+    print("%d. %s (%s / %s)" % (ch, canlib.ChannelData(ch).channel_name,
+        canlib.ChannelData(ch).card_upc_no,
+        canlib.ChannelData(ch).card_serial_no))

@@ -22,8 +22,12 @@ import os
 import pyxhook
 from multiprocessing import Process,Queue 
 
+a = 10
+b = 12
+global a
 
-
+def erere():
+    print(444)
 ###############################################################################################################
 # 函数名称：InputKey
 # 函数功能：监控键盘输入

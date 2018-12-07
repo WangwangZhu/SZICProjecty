@@ -303,7 +303,7 @@ class StreamDetectionPlot(object):
 ##############################################################################################################
 if __name__ == '__main__':
     
-    filePath =r'/home/zhu/Desktop/SZICProject/INS/MPCTracking.csv'
+    filePath =r'/home/zeer/Desktop/SZICProjecty/INS/MPCTracking.csv'
     with open(filePath) as f:
         reader = csv.DictReader(f)
         gps_time = []
